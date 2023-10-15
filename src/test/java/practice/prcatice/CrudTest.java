@@ -65,15 +65,17 @@ public class CrudTest {
     public void delete() throws Exception {
         //given
         Member member = new Member();
+        member.setId(4583L);
         member.setName("HI");
 
         Member member2 = new Member();
+        member2.setId(5333L);
         member2.setName("HI");
         //when
         memberRepository.save(member);
         memberRepository.save(member2);
 
-        Member member3 = memberRepository.findById(2L)
+        Member member3 = memberRepository.findById(4583L)
                 .orElseThrow(() -> new ResourceNotFoundException("Member", "id", 2L));
 
         //then
